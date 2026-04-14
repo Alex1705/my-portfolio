@@ -5,7 +5,26 @@ body {
   background: #f0f4f8;
   color: #2d3748;
 }
+/* Стилі для темної теми */
+body.dark {
+  background: #1a202c;
+  color: #e2e8f0;
+}
 
+body.dark .card {
+  background: #2d3748;
+  color: #f7fafc;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+
+body.dark .card h2 {
+  color: #63b3ed;
+}
+
+body.dark .api-box {
+  background: #000000;
+  border: 1px solid #4a5568;
+}
 header {
   background: linear-gradient(135deg, #0078D4, #00BCF2);
   color: white;

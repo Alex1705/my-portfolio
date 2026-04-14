@@ -57,7 +57,16 @@ async function loadSkills() {
     container.textContent = 'Помилка завантаження навичок';
   }
 }
+function toggleTheme() {
+  const isDark = document.body.classList.toggle('dark');
+  localStorage.setItem('theme', isDark ? 'dark' : 'light'); // Зберігаємо вибір [cite: 137]
+}
 
+// Перевірка збереженої теми при завантаженні
+if (localStorage.getItem('theme') === 'dark') {
+  document.body.classList.add('dark'); 
+  document.getElementById('api-result').classList.add('dark');
+}
 // Запускаємо разом з іншими функціями
 loadSkills();
 // Завантажуємо дані автоматично при відкритті сторінки
