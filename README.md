@@ -1,13 +1,15 @@
-# Мій IT-Портфоліо на Azure Static Web Apps
+🚀 Мій IT-Портфоліо на Azure Static Web Apps
 
-[cite_start]Цей проєкт створено в межах лабораторної роботи №2 з дисципліни «Хмарні технології та сервіси» (ВК3). 
+Цей проєкт виконано в межах лабораторної роботи №2 з дисципліни «Хмарні технології та сервіси» (ВК3).
 
-## 🌐 Посилання на сайт
-[ВСТАВТЕ ВАШЕ ПОСИЛАННЯ ВІД AZURE ТУТ]
+🌐 Живий сайт
 
-## 🏗️ Архітектура проєкту (Mermaid)
-[cite_start]Проєкт використовує модель PaaS (Platform as a Service) для автоматизації розгортання. 
-```mermaid
+Відкрити портфоліо - https://polite-rock-014971703.7.azurestaticapps.net/
+
+🏗️ Архітектура (Mermaid)
+
+Проєкт реалізує сучасний підхід PaaS та Serverless, де інфраструктурою повністю керує Azure.
+
 graph LR
     A[Розробник] -->|git push| B[GitHub Repository]
     B -->|trigger| C[GitHub Actions]
@@ -16,4 +18,17 @@ graph LR
     D -->|serverless| F[Azure Functions /api/about]
     F -->|JSON| E
 
-http://googleusercontent.com/immersive_entry_chip/0
+
+🛠️ Виконані завдання
+
+CI/CD Pipeline: Налаштовано автоматичне розгортання через GitHub Actions.
+
+Azure Functions: Створено API endpoint на Python.
+
+Додатково (A): Додано другий API /api/skills та прогрес-бари.
+
+Додатково (B): Реалізовано перемикач темної/світлої теми зі збереженням у localStorage.
+
+Додатково (C): Створено цей професійний файл документації.
+
+© 2026 | ОНУ ім. І.І. Мечникова

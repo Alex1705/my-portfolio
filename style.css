@@ -5,25 +5,90 @@ body {
   background: #f0f4f8;
   color: #2d3748;
 }
-/* Стилі для темної теми */
+/* Контейнер для перемикача */
+.theme-switch-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.theme-switch-wrapper span {
+  font-size: 0.85em;
+  font-weight: 600;
+}
+
+/* Сам перемикач */
+.theme-switch {
+  display: inline-block;
+  height: 24px;
+  position: relative;
+  width: 50px;
+}
+
+.theme-switch input {
+  display: none;
+}
+
+.slider {
+  background-color: rgba(255, 255, 255, 0.3);
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: .4s;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.slider:before {
+  background-color: #fff;
+  bottom: 3px;
+  content: "";
+  height: 16px;
+  left: 4px;
+  position: absolute;
+  transition: .4s;
+  width: 16px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+input:checked + .slider {
+  background-color: #107C10; /* Колір при увімкненні (зелений) */
+}
+
+input:checked + .slider:before {
+  transform: translateX(24px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
 body.dark {
-  background: #1a202c;
-  color: #e2e8f0;
+  background: #121212;
+  color: #e0e0e0;
 }
 
 body.dark .card {
-  background: #2d3748;
-  color: #f7fafc;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  background: #1e1e1e;
+  border: 1px solid #333;
 }
 
-body.dark .card h2 {
-  color: #63b3ed;
+body.dark .skill {
+  background: #2c3e50;
+  color: #3498db;
 }
 
 body.dark .api-box {
-  background: #000000;
-  border: 1px solid #4a5568;
+  background: #000;
+  border: 1px solid #444;
 }
 header {
   background: linear-gradient(135deg, #0078D4, #00BCF2);

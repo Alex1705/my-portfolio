@@ -57,16 +57,30 @@ async function loadSkills() {
     container.textContent = 'Помилка завантаження навичок';
   }
 }
-function toggleTheme() {
-  const isDark = document.body.classList.toggle('dark');
-  localStorage.setItem('theme', isDark ? 'dark' : 'light'); // Зберігаємо вибір [cite: 137]
+// Логіка перемикача теми
+const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+const currentTheme = localStorage.getItem('theme');
+
+// Перевірка збереженої теми
+if (currentTheme) {
+    document.body.classList.toggle('dark', currentTheme === 'dark');
+    if (currentTheme === 'dark') {
+        toggleSwitch.checked = true;
+    }
 }
 
-// Перевірка збереженої теми при завантаженні
-if (localStorage.getItem('theme') === 'dark') {
-  document.body.classList.add('dark'); 
-  document.getElementById('api-result').classList.add('dark');
+// Функція обробки натискання
+function switchTheme(e) {
+    if (e.target.checked) {
+        document.body.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+    } else {
+        document.body.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+    }    
 }
+
+toggleSwitch.addEventListener('change', switchTheme, false);
 // Запускаємо разом з іншими функціями
 loadSkills();
 // Завантажуємо дані автоматично при відкритті сторінки
