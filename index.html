@@ -59,10 +59,16 @@
 
     <section class="card" id="api-section">
       <h2>Інформація про студента (Azure Functions API)</h2>
-      <p class="api-hint">Дані завантажуються з серверного API...</p>
-      <div id="api-result" class="api-box">Завантаження...</div>
+      <p class="api-hint">Дані завантажуються з серверного API та відображаються у зручному вигляді</p>
+      <div id="api-result" class="student-card">
+        <div class="student-loading">⏳ Завантаження даних з API...</div>
+      </div>
+      <div class="api-actions">
       <button onclick="loadApiData()">Оновити дані з API</button>
+      <button onclick="toggleEditMode()" id="edit-btn">✏️ Редагувати</button>
+      </div>
     </section>
+
   </main>
 
   <footer>

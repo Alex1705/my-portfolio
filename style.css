@@ -173,19 +173,23 @@ main {
 .labs li.done    { background: #DFF6DD; color: #1E4D02; }
 .labs li.in_work { background: #F0F4F8; color: #718096; }
 
-.api-hint { color: #718096; font-size: 0.9em; margin-bottom: 12px; }
+.api-hint { color: #718096; font-size: 0.9em; margin-bottom: 14px; }
+.student-card { display: flex; flex-direction: column; gap: 12px; }
+.student-loading { color: #718096; font-size: 0.9em; padding: 20px 0; text-align: center; }
+.info-row { display: flex; align-items: center; padding: 10px 14px; border-radius: 8px; background: #f7fafd; gap: 10px; }
+.info-row .label { font-size: 0.8em; color: #718096; min-width: 120px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; }
+.info-row .value { font-size: 0.95em; color: #2d3748; font-weight: 500; flex: 1; }
+.info-row input { border: 1px solid #bee3f8; border-radius: 6px; padding: 4px 10px; font-size: 0.95em; color: #2d3748; flex: 1; display: none; }
+.editing .info-row input { display: block; }
+.editing .info-row .value { display: none; }
+.skills-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.api-tag { background: #DEECF9; color: #0078D4; padding: 3px 12px; border-radius: 20px; font-size: 0.82em; font-weight: 600; }
+.api-timestamp { font-size: 0.8em; color: #a0aec0; margin-top: 4px; text-align: right; }
+.api-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 8px; }
+#edit-btn { background: #EBF8FF; color: #0078D4; border: 1px solid #bee3f8; }
+#edit-btn:hover { background: #bee3f8; }
 
-.api-box {
-  background: #1B1F2E;
-  color: #C9D1D9;
-  font-family: 'Courier New', monospace;
-  font-size: 0.85em;
-  padding: 16px;
-  border-radius: 8px;
-  margin-bottom: 12px;
-  white-space: pre;
-  overflow-x: auto;
-}
+
 
 button {
   background: #0078D4;
