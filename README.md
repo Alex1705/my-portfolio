@@ -1,34 +1,65 @@
-🚀 Мій IT-Портфоліо на Azure Static Web Apps
+🚀 Azure Static Web Apps: IoT Portfolio Dashboard
 
-Цей проєкт виконано в межах лабораторної роботи №2 з дисципліни «Хмарні технології та сервіси» (ВК3).
+Цей проєкт реалізовано в межах лабораторної роботи №2 з дисципліни «Хмарні технології та сервіси». Проєкт демонструє перехід від моделі IaaS до PaaS (Platform as a Service), використовуючи автоматизований CI/CD конвеєр.
 
-🌐 Живий сайт
+🌐 Посилання на проект
 
-Відкрити портфоліо - https://polite-rock-014971703.7.azurestaticapps.net/
+Переглянути мій сайт у хмарі Azure
 
 🏗️ Архітектура (Mermaid)
 
-Проєкт реалізує сучасний підхід PaaS та Serverless, де інфраструктурою повністю керує Azure.
-```mermaid
-graph LR
+Проєкт використовує безсерверну (Serverless) архітектуру. Весь процес від написання коду до розгортання автоматизовано.
+
+graph TD
     A[Розробник] -->|git push| B[GitHub Repository]
-    B -->|trigger| C[GitHub Actions]
-    C -->|build & deploy| D[Azure Static Web Apps]
-    D -->|CDN| E[Браузер користувача]
-    D -->|serverless| F[Azure Functions /api/about]
-    F -->|JSON| E
+    B -->|GitHub Actions| C{CI/CD Pipeline}
+    C -->|Build & Deploy Static| D[Azure Static Web Apps]
+    C -->|Deploy API| E[Azure Functions]
+    D -->|Request /api/about| E
+    E -->|JSON Response| D
+    D -->|HTTPS/CDN| F[Кінцевий користувач]
 
 
-🛠️ Виконані завдання
+🛠️ Технологічний стек
 
-CI/CD Pipeline: Налаштовано автоматичне розгортання через GitHub Actions.
+Frontend: HTML5, Modern CSS (Flexbox/Grid), JavaScript (Vanilla).
 
-Azure Functions: Створено API endpoint на Python.
+Backend (Serverless): Azure Functions на базі Python (Programming Model v2).
 
-Додатково (A): Додано другий API /api/skills та прогрес-бари.
+Infrastructure: Microsoft Azure (PaaS).
 
-Додатково (B): Реалізовано перемикач темної/світлої теми зі збереженням у localStorage.
+Automation: GitHub Actions (CI/CD).
 
-Додатково (C): Створено цей професійний файл документації.
+🌟 Виконані завдання
 
-© 2026 | ОНУ ім. І.І. Мечникова
+Основна частина:
+
+[x] Налаштування GitHub репозиторію та локального середовища.
+
+[x] Створення ресурсу Azure Static Web Apps.
+
+[x] Конфігурація GitHub Actions для автоматичного деплою.
+
+[x] Розробка та інтеграція Azure Functions API (/api/about).
+
+Додаткові завдання (Advanced):
+
+[x] Завдання A: Реалізовано додатковий API-ендпоінт для навичок та візуалізація через прогрес-бари.
+
+[x] Завдання B: Додано стильний Dark Mode перемикач (Switch). Стан теми зберігається у localStorage.
+
+[x] Завдання C: Створено професійну документацію (цей файл) з використанням Mermaid-діаграм для візуалізації хмарної архітектури.
+
+📂 Структура проекту
+
+├── .github/workflows/   # Конфігурація автоматичного деплою
+├── api/                 # Backend: Azure Functions (Python)
+│   ├── function_app.py  # Основний файл функцій
+│   └── requirements.txt # Залежності Python
+├── index.html           # Головна сторінка
+├── styles.css           # Стилі (включаючи Dark Theme)
+├── app.js               # Логіка Frontend та робота з API
+└── README.md            # Документація проекту
+
+
+© 2026 | Одеський національний університет імені І.І. Мечникова
