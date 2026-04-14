@@ -26,10 +26,10 @@ async function loadApiData() {
 // Відображає дані з API у вигляді структурованої картки
 function renderStudentCard(container, data) {
   const fields = [
-    { key: 'name',      label: '👤 Ім’я'},
+    { key: 'name',      label: '👤 Name'},
     { key: 'email',     label: '📧 Email'},
-    { key: 'specialty', label: '🎓 Спеціальність'},
-    { key: 'labs_done', label: '✅ Лабораторних виконано'},
+    { key: 'specialty', label: '🎓 Specialty'},
+    { key: 'labs_done', label: '✅ Labs'},
     { key: 'platform',  label: '☁️ Platform'},
   ];
   const skillsHtml = (data.skills || []).map(s => `<span class="api-tag">${s}</span>`).join('');
