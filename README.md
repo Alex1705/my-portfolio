@@ -19,7 +19,7 @@ graph TD
     D -->|Request /api/about| E
     E -->|JSON Response| D
     D -->|HTTPS/CDN| F[Кінцевий користувач]
-
+```
 
 🛠️ Технологічний стек
 
