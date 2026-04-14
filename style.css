@@ -180,14 +180,10 @@ main {
 .info-row .label { font-size: 0.8em; color: #718096; min-width: 120px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; }
 .info-row .value { font-size: 0.95em; color: #2d3748; font-weight: 500; flex: 1; }
 .info-row input { border: 1px solid #bee3f8; border-radius: 6px; padding: 4px 10px; font-size: 0.95em; color: #2d3748; flex: 1; display: none; }
-.editing .info-row input { display: block; }
-.editing .info-row .value { display: none; }
 .skills-tags { display: flex; flex-wrap: wrap; gap: 6px; }
 .api-tag { background: #DEECF9; color: #0078D4; padding: 3px 12px; border-radius: 20px; font-size: 0.82em; font-weight: 600; }
 .api-timestamp { font-size: 0.8em; color: #a0aec0; margin-top: 4px; text-align: right; }
 .api-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 8px; }
-#edit-btn { background: #EBF8FF; color: #0078D4; border: 1px solid #bee3f8; }
-#edit-btn:hover { background: #bee3f8; }
 
 
 

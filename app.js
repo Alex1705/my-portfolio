@@ -23,44 +23,25 @@ async function loadApiData() {
   }
 }
 
-// Завантажуємо дані автоматично при відкритті сторінки
-loadApiData();
-
 // Відображає дані з API у вигляді структурованої картки
 function renderStudentCard(container, data) {
   const fields = [
-    { key: 'name',      label: '👤 ᐆႄ’я', editable: true },
-    { key: 'email',     label: '📧 Email', editable: true },
-    { key: 'specialty', label: '🎓 Спеціальність', editable: true },
-    { key: 'labs_done', label: '✅ Лабораторних виконано', editable: false },
-    { key: 'platform',  label: '☁️ Platform', editable: false },
+    { key: 'name',      label: '👤 Ім’я'},
+    { key: 'email',     label: '📧 Email'},
+    { key: 'specialty', label: '🎓 Спеціальність'},
+    { key: 'labs_done', label: '✅ Лабораторних виконано'},
+    { key: 'platform',  label: '☁️ Platform'},
   ];
   const skillsHtml = (data.skills || []).map(s => `<span class="api-tag">${s}</span>`).join('');
   let html = fields.map(f => `
     <div class="info-row">
       <span class="label">${f.label}</span>
       <span class="value">${data[f.key]}</span>
-      ${f.editable ? `<input data-key="${f.key}" value="${data[f.key]}" />` : ''}
     </div>`).join('');
   html += `<div class="info-row"><span class="label">💪 Skills</span><div class="skills-tags">${skillsHtml}</div></div>`;
   html += `<p class="api-timestamp">🕑 Оновлено: ${data.deployed_at}</p>`;
   container.innerHTML = html;
 }
-
-// Перемикає режим редагування полів студента
-function toggleEditMode() {
-  const card = document.getElementById('api-result');
-  const btn = document.getElementById('edit-btn');
-  const isEditing = card.classList.toggle('editing');
-  if (!isEditing) {
-    card.querySelectorAll('input[data-key]').forEach(inp => {
-      const span = inp.previousElementSibling;
-      if (span) span.textContent = inp.value;
-    });
-  }
-  btn.textContent = isEditing ? '💾 Зберегти' : '✏️ Редагувати';
-}
-
 async function loadSkills() {
   const container = document.getElementById('skills-container');
 
@@ -120,5 +101,7 @@ function switchTheme(e) {
 }
 
 toggleSwitch.addEventListener('change', switchTheme, false);
-// Запускаємо разом з іншими функціями
+
+// Завантажуємо дані автоматично при відкритті сторінки
+loadApiData();
 loadSkills();
