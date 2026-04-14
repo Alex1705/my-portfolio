@@ -57,7 +57,32 @@ main {
   font-size: 0.9em;
   font-weight: 500;
 }
+.skill-item {
+  margin-bottom: 14px;
+}
 
+.skill-label {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+  font-size: 0.9em;
+  font-weight: 500;
+}
+
+.progress-track {
+  background: #EDF2F7;
+  border-radius: 20px;
+  height: 10px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  border-radius: 20px;
+  background: linear-gradient(90deg, #0078D4, #00BCF2);
+  transition: width 0.6s ease;
+  width: 0%;
+}
 .labs { list-style: none; display: flex; flex-direction: column; gap: 8px; }
 
 .labs li { padding: 8px 12px; border-radius: 8px; font-size: 0.95em; }
