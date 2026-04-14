@@ -9,7 +9,7 @@
 🏗️ Архітектура (Mermaid)
 
 Проєкт реалізує сучасний підхід PaaS та Serverless, де інфраструктурою повністю керує Azure.
-
+```mermaid
 graph LR
     A[Розробник] -->|git push| B[GitHub Repository]
     B -->|trigger| C[GitHub Actions]
