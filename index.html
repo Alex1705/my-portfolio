@@ -3,24 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Портфоліо — [Ваше Ім'я]</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>Портфоліо — Сбітнєв Олександр</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <header>
     <div class="avatar">&#128100;</div>
     <!-- ВАШІ ДАНІ: замініть на свої -->
-    <h1>Іванов Іван Іванович</h1>
-    <p class="subtitle">Магістрант | Комп'ютерна інженерія</p>
+    <h1>Сбітнєв Олександр Юрійович</h1>
+    <p class="subtitle">Аспірант | Комп'ютерні науки</p>
     <span class="badge">Azure Static Web Apps</span>
+    <div class="theme-switch-wrapper">
+      <span>Світла</span>
+      <label class="theme-switch" for="checkbox">
+        <input type="checkbox" id="checkbox" />
+        <div class="slider round"></div>
+      </label>
+      <span>Темна</span>
+    </div>
   </header>
 
   <main>
     <section class="card">
       <h2>Про мене</h2>
       <!-- ВАШІ ДАНІ: напишіть 2-3 речення про себе -->
-      <p>Магістрант 1-го курсу спеціальності «Комп'ютерна інженерія».
+      <p>Аспірант 3-го курсу спеціальності «Комп'ютерні науки».
          Цікавлюсь хмарними технологіями, IoT та розробкою програмного забезпечення.</p>
     </section>
 
@@ -34,14 +42,19 @@
         <span class="skill">Linux</span>
         <span class="skill">SQL</span>
         <span class="skill">REST API</span>
+        <span class="skill">CI/CD</span>
       </div>
     </section>
-
+    <section class="card">
+      <h2>Рівень володіння навичками</h2>
+      <div id="skills-container">Завантаження...</div>
+    </section>
     <section class="card">
       <h2>Лабораторні роботи з ВК3</h2>
       <ul class="labs">
         <li class="done">Лаб. № 1 — Azure IaaS: Virtual Machine + Flask ToDo App</li>
         <li class="in_work">Лаб. № 2 — Azure PaaS: Static Web Apps + CI/CD (ця робота)</li>
+      </ul>
     </section>
 
     <section class="card" id="api-section">
@@ -51,9 +64,10 @@
         <div class="student-loading">⏳ Завантаження даних з API...</div>
       </div>
       <div class="api-actions">
-      <button onclick="loadApiData()">Оновити дані з API</button>      
+      <button onclick="loadApiData()">Оновити дані з API</button>
       </div>
     </section>
+
   </main>
 
   <footer>
