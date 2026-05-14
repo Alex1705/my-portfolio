@@ -1,0 +1,4 @@
+pip install azure-ai-textanalytics    # Azure AI Language SDK
+pip install azure-cosmos             # Azure Cosmos DB SDK
+pip install python-dotenv            # .env файли
+pip install azure-functions          # Azure Functions (якщо локально)
