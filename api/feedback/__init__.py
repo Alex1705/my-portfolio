@@ -72,9 +72,9 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     container.upsert_item(document)
     # ── Якщо негативний — сповістити Logic Apps ──────────────────────────
     LOGIC_APP_URL = os.getenv('LOGIC_APP_WEBHOOK_URL', '')  # URL з кроку D2.1
-
+    
     if sentiment == 'negative' and LOGIC_APP_URL:
-    alert_payload = {
+        alert_payload = {
         'feedback_id'         : document['id'],
         'course'              : course,
         'author'              : author,
