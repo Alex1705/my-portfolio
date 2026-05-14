@@ -4,12 +4,10 @@
 import azure.functions as func
 import json, os, uuid
 from datetime import datetime
-from dotenv import load_dotenv
 from azure.ai.textanalytics import TextAnalyticsClient
 from azure.core.credentials import AzureKeyCredential
 from azure.cosmos import CosmosClient
-
-load_dotenv()
+import requests  # додайте на початку файлу
 
 # ── Ініціалізація клієнтів ──────────────────────────────────────────
 def get_ai_client():
@@ -72,11 +70,28 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     # ── Зберігаємо у Cosmos DB ───────────────────────────────────────
     container = get_cosmos_container()
     container.upsert_item(document)
+    # ── Якщо негативний — сповістити Logic Apps ──────────────────────────
+    LOGIC_APP_URL = os.getenv('LOGIC_APP_WEBHOOK_URL', '')  # URL з кроку D2.1
 
+    if sentiment == 'negative' and LOGIC_APP_URL:
+    alert_payload = {
+        'feedback_id'         : document['id'],
+        'course'              : course,
+        'author'              : author,
+        'text'                : text,
+        'sentiment'           : sentiment,
+        'confidence_negative' : confidence['negative'],
+        'key_phrases'         : key_phrases,
+    }
+    try:
+        requests.post(LOGIC_APP_URL, json=alert_payload, timeout=5)
+    except Exception as e:
+        print(f'Logic Apps alert failed: {e}')  # не зупиняємо основний flow
     # ── Відповідь клієнту ────────────────────────────────────────────
     return func.HttpResponse(
         body    = json.dumps(document, ensure_ascii=False, indent=2),
         mimetype= 'application/json',
         headers = {'Access-Control-Allow-Origin': '*'}
     )
+
 
