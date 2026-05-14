@@ -204,3 +204,316 @@ footer {
   color: #a0aec0;
   font-size: 0.85em;
 }
+/* ============================================================
+   ДОПОВНЕННЯ ДО style.css — Лаб. №4, Завдання A
+   Вставте в кінець вашого style.css
+   ============================================================ */
+
+/* ── Підзаголовки в секції відгуків ─────────────────────────── */
+.feedback-subtitle {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 1rem 0;
+  color: var(--text-secondary, #555);
+}
+
+/* ── Форма відгуку ───────────────────────────────────────────── */
+.feedback-form-wrapper {
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--border, #e2e8f0);
+}
+
+.feedback-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  position: relative;
+}
+
+.form-row label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary, #555);
+}
+
+.form-row input,
+.form-row select,
+.form-row textarea {
+  padding: 0.6rem 0.85rem;
+  border: 1.5px solid var(--border, #e2e8f0);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  background: var(--input-bg, #fff);
+  color: var(--text, #1a202c);
+  transition: border-color 0.2s;
+  resize: vertical;
+}
+
+.form-row input:focus,
+.form-row select:focus,
+.form-row textarea:focus {
+  outline: none;
+  border-color: #0078d4;
+}
+
+.required { color: #e53e3e; }
+
+.char-counter {
+  align-self: flex-end;
+  font-size: 0.75rem;
+  color: var(--text-secondary, #888);
+  margin-top: -0.2rem;
+}
+
+/* ── Кнопки ─────────────────────────────────────────────────── */
+.btn-primary {
+  padding: 0.65rem 1.4rem;
+  background: #0078d4;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+  align-self: flex-start;
+}
+.btn-primary:hover  { background: #005a9e; }
+.btn-primary:active { transform: scale(0.97); }
+.btn-primary:disabled { background: #a0aec0; cursor: not-allowed; }
+
+.btn-secondary {
+  padding: 0.45rem 1rem;
+  background: transparent;
+  color: #0078d4;
+  border: 1.5px solid #0078d4;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-secondary:hover { background: #e8f0fb; }
+
+/* ── Результат аналізу AI Language ──────────────────────────── */
+.feedback-result {
+  margin-top: 1.25rem;
+  padding: 1.1rem 1.25rem;
+  background: var(--result-bg, #f0f7ff);
+  border: 1.5px solid #bee3f8;
+  border-radius: 10px;
+}
+.feedback-result h4 {
+  margin: 0 0 0.85rem 0;
+  font-size: 0.95rem;
+  color: #2b6cb0;
+}
+
+.hidden { display: none !important; }
+
+.analysis-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.85rem;
+}
+.analysis-item { display: flex; flex-direction: column; gap: 0.4rem; }
+.analysis-item.full-width { grid-column: 1 / -1; }
+
+.analysis-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-secondary, #718096);
+}
+
+/* Бейдж тональності */
+.sentiment-badge {
+  display: inline-block;
+  padding: 0.3rem 0.9rem;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  width: fit-content;
+}
+.sentiment-badge.positive { background: #c6f6d5; color: #276749; }
+.sentiment-badge.neutral  { background: #fefcbf; color: #744210; }
+.sentiment-badge.negative { background: #fed7d7; color: #9b2c2c; }
+
+/* Confidence bars */
+.conf-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.82rem;
+}
+.conf-label    { width: 70px; color: var(--text-secondary, #555); }
+.conf-bar-wrap { flex: 1; height: 10px; background: var(--bar-bg, #e2e8f0); border-radius: 5px; overflow: hidden; }
+.conf-bar      { height: 100%; border-radius: 5px; transition: width 0.5s ease; }
+.conf-bar.positive { background: #48bb78; }
+.conf-bar.neutral  { background: #ecc94b; }
+.conf-bar.negative { background: #fc8181; }
+.conf-pct { width: 35px; text-align: right; font-weight: 600; }
+
+/* Теги фраз */
+.phrases-list { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.phrase-tag {
+  padding: 0.25rem 0.65rem;
+  background: var(--tag-bg, #e8f0fb);
+  color: #0078d4;
+  border-radius: 20px;
+  font-size: 0.82rem;
+  font-weight: 500;
+}
+.no-phrases { font-size: 0.85rem; color: var(--text-secondary, #999); font-style: italic; }
+
+/* ── Блок статистики ─────────────────────────────────────────── */
+.stats-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.stats-loading {
+  padding: 1.5rem;
+  text-align: center;
+  color: var(--text-secondary, #718096);
+  font-size: 0.95rem;
+}
+
+/* Лічильники */
+.stats-counters {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.counter-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.9rem 0.5rem;
+  border-radius: 10px;
+  text-align: center;
+  gap: 0.25rem;
+}
+.counter-card.total    { background: var(--counter-total, #edf2f7); }
+.counter-card.positive { background: #c6f6d5; }
+.counter-card.neutral  { background: #fefcbf; }
+.counter-card.negative { background: #fed7d7; }
+
+.counter-num {
+  font-size: 1.8rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--text, #1a202c);
+}
+.counter-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-secondary, #555);
+  text-align: center;
+}
+
+/* Кругова діаграма (donut) */
+.chart-row {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+}
+.donut-wrap { position: relative; width: 120px; height: 120px; flex-shrink: 0; }
+.donut {
+  width: 120px; height: 120px;
+  border-radius: 50%;
+}
+.donut-center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--text, #1a202c);
+  /* вирізаємо центр */
+  background: var(--card-bg, #fff);
+  width: 60px; height: 60px;
+  border-radius: 50%;
+  margin: auto;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 1.2;
+  text-align: center;
+}
+.donut-center small { font-size: 0.65rem; font-weight: 500; color: var(--text-secondary, #718096); }
+
+.donut-legend  { display: flex; flex-direction: column; gap: 0.5rem; }
+.legend-row    { display: flex; align-items: center; gap: 0.5rem; font-size: 0.88rem; }
+.legend-dot    { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
+.legend-dot.positive { background: #48bb78; }
+.legend-dot.neutral  { background: #ecc94b; }
+.legend-dot.negative { background: #fc8181; }
+
+/* Блок з заголовком */
+.stats-block { margin-bottom: 1.25rem; }
+.stats-block-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin: 0 0 0.6rem 0;
+  color: var(--text-secondary, #555);
+}
+
+/* Останні відгуки */
+.recent-item {
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  border-left: 3px solid;
+}
+.recent-item.positive { background: #f0fff4; border-left-color: #48bb78; }
+.recent-item.neutral  { background: #fffff0; border-left-color: #ecc94b; }
+.recent-item.negative { background: #fff5f5; border-left-color: #fc8181; }
+
+.recent-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.82rem;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  color: var(--text, #1a202c);
+}
+.recent-meta { color: var(--text-secondary, #718096); font-weight: 400; }
+.recent-text { font-size: 0.88rem; margin: 0; color: var(--text, #333); }
+
+/* ── Адаптивність ────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .analysis-grid  { grid-template-columns: 1fr; }
+  .stats-counters { grid-template-columns: repeat(2, 1fr); }
+  .chart-row      { justify-content: center; }
+}
+
+/* ── Підтримка темної теми (якщо ваш style.css використовує .dark-theme) ── */
+.dark-theme .feedback-result       { background: #1a2a3a; border-color: #2c5282; }
+.dark-theme .feedback-result h4    { color: #90cdf4; }
+.dark-theme .form-row input,
+.dark-theme .form-row select,
+.dark-theme .form-row textarea     { background: #2d3748; border-color: #4a5568; color: #e2e8f0; }
+.dark-theme .counter-card.total    { background: #2d3748; }
+.dark-theme .phrase-tag            { background: #2a4a6b; color: #90cdf4; }
+.dark-theme .donut-center          { background: var(--card-bg, #1e2a3a); }
+.dark-theme .recent-item.positive  { background: #1c3a2a; }
+.dark-theme .recent-item.neutral   { background: #3a3510; }
+.dark-theme .recent-item.negative  { background: #3a1c1c; }

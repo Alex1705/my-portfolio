@@ -67,7 +67,90 @@
       <button onclick="loadApiData()">Оновити дані з API</button>
       </div>
     </section>
-
+   <!-- ═══════════════════════════════════════════════════════════════════
+         СЕКЦІЯ ВІДГУКІВ — Лаб. № 4 (Завдання A)
+         ═══════════════════════════════════════════════════════════════════ -->
+    <section class="card" id="feedback-section">
+      <h2>💬 Відгуки про курс ВК3</h2>
+      <p class="api-hint">
+        Відгуки аналізуються у реальному часі через
+        <strong>Azure AI Language</strong> та зберігаються у <strong>Azure Cosmos DB</strong>
+      </p>
+ 
+      <!-- Форма відгуку -->
+      <div class="feedback-form-wrapper">
+        <h3 class="feedback-subtitle">Залишити відгук</h3>
+ 
+        <div class="feedback-form">
+          <div class="form-row">
+            <label for="feedback-author">Ім'я (необов'язково)</label>
+            <input
+              type="text"
+              id="feedback-author"
+              placeholder="Анонімно"
+              maxlength="50"
+            />
+          </div>
+ 
+          <div class="form-row">
+            <label for="feedback-course">Курс</label>
+            <select id="feedback-course">
+              <option value="ВК3">ВК3 — Хмарні технології та сервіси</option>
+              <option value="ВК1">ВК1 — Основи програмування</option>
+              <option value="ВК2">ВК2 — Бази даних</option>
+              <option value="ВК4">ВК4 — Машинне навчання</option>
+            </select>
+          </div>
+ 
+          <div class="form-row">
+            <label for="feedback-text">Відгук <span class="required">*</span></label>
+            <textarea
+              id="feedback-text"
+              placeholder="Напишіть ваш відгук про курс..."
+              rows="4"
+              maxlength="500"
+            ></textarea>
+            <span class="char-counter"><span id="char-count">0</span>/500</span>
+          </div>
+ 
+          <button class="btn-primary" id="feedback-submit-btn" onclick="submitFeedback()">
+            <span id="submit-label">Надіслати відгук</span>
+          </button>
+        </div>
+ 
+        <!-- Результат аналізу (з'являється після відправки) -->
+        <div id="feedback-result" class="feedback-result hidden">
+          <h4>🤖 Результат аналізу Azure AI Language:</h4>
+          <div class="analysis-grid">
+            <div class="analysis-item">
+              <span class="analysis-label">Тональність</span>
+              <span id="result-sentiment" class="sentiment-badge">—</span>
+            </div>
+            <div class="analysis-item">
+              <span class="analysis-label">Впевненість</span>
+              <div class="confidence-bars" id="result-confidence"></div>
+            </div>
+            <div class="analysis-item full-width">
+              <span class="analysis-label">Ключові теми</span>
+              <div id="result-phrases" class="phrases-list"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+ 
+      <!-- Статистика -->
+      <div class="stats-wrapper">
+        <div class="stats-header">
+          <h3 class="feedback-subtitle">📊 Статистика відгуків</h3>
+          <button class="btn-secondary" onclick="loadStats()">🔄 Оновити</button>
+        </div>
+ 
+        <div id="stats-content" class="stats-content">
+          <div class="stats-loading">⏳ Завантаження статистики...</div>
+        </div>
+      </div>
+    </section>
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
   </main>
 
   <footer>
